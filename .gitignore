@@ -1,0 +1,10 @@
+# Ignorer les données, modèles, fichiers système et environnements
+data/
+models/
+*.csv
+*.pkl
+*.joblib
+.DS_Store
+__pycache__/
+.ipynb_checkpoints/
+.env
