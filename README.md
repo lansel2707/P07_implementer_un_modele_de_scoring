@@ -91,6 +91,6 @@ et à industrialiser le pipeline de scoring de bout en bout.
 
 ---
 
-*(Complète et adapte la checklist au fur et à mesure de ta progression !)*
+
 
 
