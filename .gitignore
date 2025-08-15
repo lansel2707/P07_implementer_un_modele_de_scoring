@@ -1,5 +1,6 @@
-# Ignorer les données, modèles, fichiers système et environnements
+# Ignorer tous les fichiers de données et modèles, y compris data_processed
 data/
+data_processed/
 models/
 *.csv
 *.pkl
