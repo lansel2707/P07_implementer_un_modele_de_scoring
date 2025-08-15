@@ -1,0 +1,38 @@
+name: CI + Evidently
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests (skip heavy model load)
+      run: |
+        export SKIP_MODEL_LOAD_IN_TESTS=1
+        pytest -v
+
+    - name: Generate Evidently report
+      run: |
+        python utils/generate_evidently_report.py
+
+    - name: Upload report as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: evidently-report
+        path: reports/evidently_report.html
+
